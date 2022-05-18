@@ -1,0 +1,22 @@
+{
+  "name": "sparse",
+  "version": "1.0.0",
+  "description": "A command line argument parser for JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/R-Neville/sparse.git"
+  },
+  "keywords": [
+    "parser"
+  ],
+  "author": "Robbie Neville",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/R-Neville/sparse/issues"
+  },
+  "homepage": "https://github.com/R-Neville/sparse#readme"
+}
