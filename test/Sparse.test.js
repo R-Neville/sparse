@@ -4,9 +4,8 @@ const Sparse = require('../lib/Sparse');
 describe('Sparse', () => {
 
   const parser = new Sparse();
-  
-  describe('options', () => {
 
+  describe('options', () => {
     it ('should return an empty array when no options have been added', () => {
       const options = parser.options;
       expect(options).to.have.lengthOf(0);
