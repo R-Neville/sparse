@@ -1,3 +1,3 @@
-const Sparse = require('./Sparse');
+const Sparse = require('./lib/Sparse');
 
 module.exports = Sparse;
