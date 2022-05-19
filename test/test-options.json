@@ -52,5 +52,14 @@
     "groupable": false,
     "minArgs": 0,
     "maxArgs": 0
+  },
+  {
+    "name": "option-G",
+    "shorthand": "G",
+    "acceptsArgs": true,
+    "keyValue": false,
+    "groupable": false,
+    "minArgs": 1,
+    "maxArgs": 3
   }
 ]
