@@ -14,7 +14,7 @@ Sparsely consists of a single class (`Sparsely`), which can be imported
 into your project by running:
 
 ```js
-const Sparse = require('sparsely');
+const Sparsely = require('sparsely');
 ```
 
 You can use the `addOption` method to register options with an
