@@ -1,0 +1,47 @@
+[
+  {
+    "name": "option-A",
+    "shortand": "A",
+    "acceptsArgs": false,
+    "keyValue": false,
+    "groupable": false,
+    "minArgs": 0,
+    "maxArgs": 0
+  },
+  {
+    "name": "option-B",
+    "shortand": "B",
+    "acceptsArgs": true,
+    "keyValue": false,
+    "groupable": false,
+    "minArgs": 1,
+    "maxArgs": 1
+  },
+  {
+    "name": "option-C",
+    "shortand": "C",
+    "acceptsArgs": true,
+    "keyValue": true,
+    "groupable": false,
+    "minArgs": 1,
+    "maxArgs": 1
+  },
+  {
+    "name": "option-D",
+    "shortand": "D",
+    "acceptsArgs": false,
+    "keyValue": false,
+    "groupable": true,
+    "minArgs": 0,
+    "maxArgs": 0
+  },
+  {
+    "name": "option-E",
+    "shortand": "E",
+    "acceptsArgs": true,
+    "keyValue": false,
+    "groupable": false,
+    "minArgs": 1,
+    "maxArgs": 3
+  }
+]
