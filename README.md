@@ -4,6 +4,12 @@ A command line argument parser for JavaScript.
 
 ## Usage
 
+To install Sparsely, run:
+
+```
+npm install sparsely
+```
+
 Sparsely consists of a single class (`Sparsely`), which can be imported
 into your project by running:
 
