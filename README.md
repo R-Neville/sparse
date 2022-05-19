@@ -35,7 +35,7 @@ parser.addOption({
 ```
 
 All of the properties specified in the example above
-are required for correct execution of the the `exec` method -
+are required for correct execution of the `exec` method -
 the primary parsing logic. `exec` takes an string array (of 
 command line arguments) as its sole argument:
 
