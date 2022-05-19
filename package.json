@@ -11,7 +11,13 @@
     "url": "git+https://github.com/R-Neville/sparsely.git"
   },
   "keywords": [
-    "parser"
+    "parser",
+    "commandline",
+    "argument",
+    "option",
+    "args",
+    "argv",
+    "cli"
   ],
   "author": "Robbie Neville",
   "license": "MIT",
