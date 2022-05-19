@@ -1,7 +1,7 @@
 [
   {
     "name": "option-A",
-    "shortand": "A",
+    "shorthand": "A",
     "acceptsArgs": false,
     "keyValue": false,
     "groupable": false,
@@ -10,7 +10,7 @@
   },
   {
     "name": "option-B",
-    "shortand": "B",
+    "shorthand": "B",
     "acceptsArgs": true,
     "keyValue": false,
     "groupable": false,
@@ -19,7 +19,7 @@
   },
   {
     "name": "option-C",
-    "shortand": "C",
+    "shorthand": "C",
     "acceptsArgs": true,
     "keyValue": true,
     "groupable": false,
@@ -28,7 +28,7 @@
   },
   {
     "name": "option-D",
-    "shortand": "D",
+    "shorthand": "D",
     "acceptsArgs": false,
     "keyValue": false,
     "groupable": true,
@@ -37,11 +37,11 @@
   },
   {
     "name": "option-E",
-    "shortand": "E",
-    "acceptsArgs": true,
+    "shorthand": "E",
+    "acceptsArgs": false,
     "keyValue": false,
-    "groupable": false,
-    "minArgs": 1,
-    "maxArgs": 3
+    "groupable": true,
+    "minArgs": 0,
+    "maxArgs": 0
   }
 ]
