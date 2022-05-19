@@ -1,3 +1,3 @@
-const Sparse = require('./lib/Sparse');
+const Sparsely = require('./lib/Sparsely');
 
-module.exports = Sparse;
+module.exports = Sparsely;

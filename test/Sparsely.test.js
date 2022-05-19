@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const Sparse = require('../lib/Sparse');
+const Sparsely = require('../lib/Sparsely');
 const testOptions = require('./test-options.json');
 
 describe('Sparse (without test options)', () => {

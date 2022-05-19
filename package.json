@@ -1,5 +1,5 @@
 {
-  "name": "arg-sparse",
+  "name": "sparsely",
   "version": "1.0.0",
   "description": "A command line argument parser for JavaScript",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/R-Neville/sparse.git"
+    "url": "git+https://github.com/R-Neville/sparsely.git"
   },
   "keywords": [
     "parser"
@@ -16,9 +16,9 @@
   "author": "Robbie Neville",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/R-Neville/sparse/issues"
+    "url": "https://github.com/R-Neville/sparsely/issues"
   },
-  "homepage": "https://github.com/R-Neville/sparse#readme",
+  "homepage": "https://github.com/R-Neville/sparsely#readme",
   "devDependencies": {
     "chai": "^4.3.6",
     "mocha": "^10.0.0"
