@@ -43,5 +43,14 @@
     "groupable": true,
     "minArgs": 0,
     "maxArgs": 0
+  },
+  {
+    "name": "option-F",
+    "shorthand": "F",
+    "acceptsArgs": false,
+    "keyValue": false,
+    "groupable": false,
+    "minArgs": 0,
+    "maxArgs": 0
   }
 ]
