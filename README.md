@@ -1,21 +1,21 @@
-# Sparse
+# Sparsely
+
 A command line argument parser for JavaScript. 
 
 ## Usage
 
-
-Sparse consists of a single class (`Sparse`), which can be imported
+Sparsely consists of a single class (`Sparsely`), which can be imported
 into your project by running:
 
 ```js
-const Sparse = require('arg-sparse');
+const Sparse = require('sparsely');
 ```
 
 You can use the `addOption` method to register options with an
 instance:
 
 ```js
-const parser = new Sparse();
+const parser = new Sparsely();
 
 parser.addOption({
   name: 'help',
@@ -41,13 +41,10 @@ command line arguments) as its sole argument:
 parser.exec(process.argv.slice(2));
 ```
 
-`Sparse` objects have three important properties, which you 
+`Sparsely` objects have three important properties, which you 
 can use to determine the parsing results:
 
 - `errors` -> an array of error messages.
 - `parsedArgs` -> an array of all *program* arguments.
 - `parsedOptions` -> an array of all options (each option 
 is represented as an object with a `name` and `args` (string array) property).
-
-
-
