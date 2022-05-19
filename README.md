@@ -2,6 +2,13 @@
 A command line parser for JavaScript. 
 
 ## Usage
+
+To install Sparse, run:
+
+```
+npm install sparse
+```
+
 Sparse consists of a single class (`Sparse`), which can be imported
 into your project by running:
 
@@ -45,8 +52,7 @@ can use to determine the parsing results:
 - `errors` -> an array of error messages.
 - `parsedArgs` -> an array of all *program* arguments.
 - `parsedOptions` -> an array of all options (each option 
-is represented as an object with a `name` and `args` (string array)  
-property).
+is represented as an object with a `name` and `args` (string array) property).
 
 
 
