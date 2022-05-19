@@ -4,7 +4,7 @@ const testOptions = require('./test-options.json');
 
 describe('Sparse (without test options)', () => {
 
-  const parser = new Sparse();
+  const parser = new Sparsely();
 
   describe('options', () => {
     it ('should return an empty array when no options have been added', () => {
@@ -40,7 +40,7 @@ describe('Sparse (with test options)', () => {
   // are added correctly via the addOption
   // method:
   describe('options', () => {
-    const parser = new Sparse();
+    const parser = new Sparsely();
 
     testOptions.forEach(option => {
       parser.addOption(option);
@@ -55,7 +55,7 @@ describe('Sparse (with test options)', () => {
   // This suite tests the scenario where only arguments
   // have been passed to the program using Sparse:
   describe('argv = ["arg1", "arg2", "arg3"]', () => {
-    const parser = new Sparse();
+    const parser = new Sparsely();
 
     testOptions.forEach(option => {
       parser.addOption(option);
@@ -94,7 +94,7 @@ describe('Sparse (with test options)', () => {
   // does not accept arguments is 
   // parsed correctly in verbose form:
   describe('argv = ["--option-A"]', () => {
-    const parser = new Sparse();
+    const parser = new Sparsely();
 
     testOptions.forEach(option => {
       parser.addOption(option);
@@ -133,7 +133,7 @@ describe('Sparse (with test options)', () => {
   // does not accept arguments is 
   // parsed correctly in shorthand form:
   describe('argv = ["-A"]', () => {
-    const parser = new Sparse();
+    const parser = new Sparsely();
 
     testOptions.forEach(option => {
       parser.addOption(option);
@@ -171,7 +171,7 @@ describe('Sparse (with test options)', () => {
   // multiple serparate verbose options
   // are parsed correctly:
   describe('argv = ["--option-A", "--option-F"]', () => {
-    const parser = new Sparse();
+    const parser = new Sparsely();
     testOptions.forEach(option => {
       parser.addOption(option);
     });
@@ -208,7 +208,7 @@ describe('Sparse (with test options)', () => {
   // multiple serparate shorthand options
   // are parsed correctly:
   describe('argv = ["-A", "-F"]', () => {
-    const parser = new Sparse();
+    const parser = new Sparsely();
     testOptions.forEach(option => {
       parser.addOption(option);
     });
@@ -245,7 +245,7 @@ describe('Sparse (with test options)', () => {
   // a group of valid options is parsed
   // correctly:
   describe('argv = ["-AF"]', () => {
-    const parser = new Sparse();
+    const parser = new Sparsely();
 
     testOptions.forEach(option => {
       parser.addOption(option);
@@ -283,7 +283,7 @@ describe('Sparse (with test options)', () => {
   // a verbose option that accepts
   // an argument is parsed correctly:
   describe('argv = ["--option-B", "arg1"]', () => {
-    const parser = new Sparse();
+    const parser = new Sparsely();
 
     testOptions.forEach(option => {
       parser.addOption(option);
@@ -321,7 +321,7 @@ describe('Sparse (with test options)', () => {
   // a shorthand option that accepts
   // an argument is parsed correctly:
   describe('argv = ["-B", "arg1"]', () => {
-    const parser = new Sparse();
+    const parser = new Sparsely();
 
     testOptions.forEach(option => {
       parser.addOption(option);
@@ -360,7 +360,7 @@ describe('Sparse (with test options)', () => {
   // an argument is parsed correctly
   // when in key/value form:
   describe('argv = ["--option-C=arg"]', () => {
-    const parser = new Sparse();
+    const parser = new Sparsely();
 
     testOptions.forEach(option => {
       parser.addOption(option);
@@ -398,7 +398,7 @@ describe('Sparse (with test options)', () => {
   // all types of arguments are parsed
   // correctly:
   describe('argv = ["-AF", "--option-B", "option-B-arg", "--option-C=arg", "program-arg-1", "program-arg-2", "-G", "option-G-arg-1", "option-G-arg-2", "-E", "-D"]', () => {
-    const parser = new Sparse();
+    const parser = new Sparsely();
 
     testOptions.forEach(option => {
       parser.addOption(option);
