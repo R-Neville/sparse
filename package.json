@@ -1,5 +1,5 @@
 {
-  "name": "sparse",
+  "name": "arg-sparse",
   "version": "1.0.0",
   "description": "A command line argument parser for JavaScript",
   "main": "index.js",
