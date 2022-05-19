@@ -417,7 +417,6 @@ describe('Sparse (with test options)', () => {
       '-F'
     ];
     parser.exec(argv);
-    parser.report();
 
     describe('errors', () => {
       const expected = 0;
