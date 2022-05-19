@@ -3,11 +3,6 @@ A command line argument parser for JavaScript.
 
 ## Usage
 
-To install Sparse, run:
-
-```
-npm install sparse
-```
 
 Sparse consists of a single class (`Sparse`), which can be imported
 into your project by running:
