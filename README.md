@@ -1,5 +1,5 @@
 # Sparse
-A command line parser for JavaScript. 
+A command line argument parser for JavaScript. 
 
 ## Usage
 
