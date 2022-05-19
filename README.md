@@ -6,14 +6,14 @@ A command line argument parser for JavaScript.
 To install Sparse, run:
 
 ```
-npm install sparse
+npm install arg-sparse
 ```
 
 Sparse consists of a single class (`Sparse`), which can be imported
 into your project by running:
 
 ```js
-const Sparse = require('sparse');
+const Sparse = require('arg-sparse');
 ```
 
 You can use the `addOption` method to register options with an
