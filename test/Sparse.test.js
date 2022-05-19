@@ -36,42 +36,123 @@ describe('Sparse (without test options)', () => {
 });
 
 describe('Sparse (with test options)', () => {
-  const parser = new Sparse();
+  
 
-  testOptions.forEach(option => {
-    parser.addOption(option);
+  describe('options', () => {
+    const parser = new Sparse();
+
+    testOptions.forEach(option => {
+      parser.addOption(option);
+    });
+
+    it(`should return an array of length ${testOptions.length}`, () => {
+      const options = parser.options;
+      expect(options).to.have.lengthOf(testOptions.length);
+    });
   });
 
   describe('argv = ["-A"]', () => {
+    const parser = new Sparse();
+
+    testOptions.forEach(option => {
+      parser.addOption(option);
+    });
+
     const argv = ['-A'];
     parser.exec(argv);
 
-    describe('options', () => {
-      it(`should return an array of length ${testOptions.length}`, () => {
-        const options = parser.options;
-        expect(options).to.have.lengthOf(testOptions.length);
-      });
-    });
-
     describe('errors', () => {
-      it(`should return an array of length 0`, () => {
+      const expected = 0;
+      it(`should return an array of length ${expected}`, () => {
         const errors = parser.errors;
-        expect(errors).to.have.lengthOf(0);
+        expect(errors).to.have.lengthOf(expected);
       });
     });
 
     describe('parsedArgs', () => {
-      it(`should return an array of length 0`, () => {
+      const expected = 0;
+      it(`should return an array of length ${expected}`, () => {
         const parsedArgs = parser.parsedArgs;
-        expect(parsedArgs).to.have.lengthOf(0);
+        expect(parsedArgs).to.have.lengthOf(expected);
       });
     });
 
     describe('parsedOptions', () => {
-      it('should return an array of length 1', () => {
+      const expected = 1;
+      it(`should return an array of length ${expected}`, () => {
         const parsedOptions = parser.parsedOptions;
-        expect(parsedOptions).to.have.lengthOf(1);
+        expect(parsedOptions).to.have.lengthOf(expected);
       });
     });
   });
-});
+
+  describe('argv = ["-AF"]', () => {
+    const parser = new Sparse();
+
+    testOptions.forEach(option => {
+      parser.addOption(option);
+    });
+
+    const argv = ['-AF'];
+    parser.exec(argv);
+
+    describe('errors', () => {
+      const expected = 2;
+      it(`should return an array of length ${expected}`, () => {
+        const errors = parser.errors;
+        expect(errors).to.have.lengthOf(expected);
+      });
+    });
+
+    describe('parsedArgs', () => {
+      const expected = 0;
+      it(`should return an array of length ${expected}`, () => {
+        const parsedArgs = parser.parsedArgs;
+        expect(parsedArgs).to.have.lengthOf(expected);
+      });
+    });
+
+    describe('parsedOptions', () => {
+      const expected = 0;
+      it(`should return an array of length ${expected}`, () => {
+        const parsedOptions = parser.parsedOptions;
+        expect(parsedOptions).to.have.lengthOf(expected);
+      });
+    });
+  });
+
+  describe('argv = ["-B"]', () => {
+    const parser = new Sparse();
+
+    testOptions.forEach(option => {
+      parser.addOption(option);
+    });
+
+    const argv = ['-B'];
+    parser.exec(argv);
+
+    describe('errors', () => {
+      const expected = 1;
+      it(`should return an array of length ${expected}`, () => {
+        const errors = parser.errors;
+        expect(errors).to.have.lengthOf(expected);
+      });
+    });
+
+    describe('parsedArgs', () => {
+      const expected = 0;
+      it(`should return an array of length ${expected}`, () => {
+        const parsedArgs = parser.parsedArgs;
+        expect(parsedArgs).to.have.lengthOf(expected);
+      });
+    });
+
+    describe('parsedOptions', () => {
+      const expected = 0;
+      it(`should return an array of length ${expected}`, () => {
+        const parsedOptions = parser.parsedOptions;
+        expect(parsedOptions).to.have.lengthOf(expected);
+      });
+    });
+  });
+}); 
