@@ -527,7 +527,7 @@ describe('Sparse (with test options)', () => {
   // the isParsedOption method indicates
   // whether an option has been parsed
   // or not:
-  describe('argv = ["-A -B"]', () => {
+  describe('argv = ["-A, -B"]', () => {
     const parser = new Sparsely();
 
     testOptions.forEach(option => {
@@ -537,27 +537,15 @@ describe('Sparse (with test options)', () => {
     const argv = [ '-A', '-B' ];
     parser.exec(argv);
 
-    describe('errors', () => {
-      const expected = 1;
-      it(`should return an array of length ${expected}`, () => {
-        const errors = parser.errors;
-        expect(errors).to.have.lengthOf(expected);
+    describe('isParsedOption', () => {
+      it('should return true with an argument of "option-A"', () => {
+        const result = parser.isParsedOption('option-A');
+        expect(result).to.be.true;
       });
-    });
 
-    describe('parsedArgs', () => {
-      const expected = 0;
-      it(`should return an array of length ${expected}`, () => {
-        const parsedArgs = parser.parsedArgs;
-        expect(parsedArgs).to.have.lengthOf(expected);
-      });
-    });
-
-    describe('parsedOptions', () => {
-      const expected = 1;
-      it(`should return an array of length ${expected}`, () => {
-        const parsedOptions = parser.parsedOptions;
-        expect(parsedOptions).to.have.lengthOf(expected);
+      it('should return false with an argument of "option-B"', () => {
+        const result = parser.isParsedOption('option-B');
+        expect(result).to.be.false;
       });
     });
   });
