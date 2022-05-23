@@ -527,7 +527,7 @@ describe('Sparse (with test options)', () => {
   // the isParsedOption method indicates
   // whether an option has been parsed
   // or not:
-  describe('argv = ["-A, -B"]', () => {
+  describe('argv = ["-A", "-B"]', () => {
     const parser = new Sparsely();
 
     testOptions.forEach(option => {
