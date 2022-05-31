@@ -39,4 +39,13 @@ describe('argv = ["--option-C=arg"]', () => {
       expect(parsedOptions).to.have.lengthOf(expected);
     });
   });
+
+  describe('isParsedOption', () => {
+    const expected = true;
+    const arg = 'option-C';
+    it(`should return ${expected} with an argument of ${arg}`, () => {
+      const result = parser.isParsedOption(arg);
+      expect(result).to.be.true;
+    });
+  });
 });
