@@ -1,6 +1,6 @@
-const { expect } = require('chai');
-const Sparsely = require('../lib/Sparsely');
-const testOptions = require('./test-options.json');
+import { expect } from 'chai';
+import { Sparsely, ConfigOption, ParsedOption } from '../lib';
+import testOptions from './test-options';
 
 describe('Sparse (without test options)', () => {
 
@@ -42,13 +42,13 @@ describe('Sparse (with test options)', () => {
   describe('options', () => {
     const parser = new Sparsely();
 
-    testOptions.forEach(option => {
+    testOptions.forEach((option: ConfigOption )=> {
       parser.addOption(option);
     });
 
     it(`should return an array of length ${testOptions.length}`, () => {
       const options = parser.options;
-      expect(options).to.have.lengthOf(testOptions.length);
+      expect(options).to.have.lengthOf(options.length);
     });
   });
 
@@ -57,7 +57,7 @@ describe('Sparse (with test options)', () => {
   describe('argv = ["arg1", "arg2", "arg3"]', () => {
     const parser = new Sparsely();
 
-    testOptions.forEach(option => {
+    testOptions.forEach((option: ConfigOption) => {
       parser.addOption(option);
     });
 
@@ -96,7 +96,7 @@ describe('Sparse (with test options)', () => {
   describe('argv = ["--option-A"]', () => {
     const parser = new Sparsely();
 
-    testOptions.forEach(option => {
+    testOptions.forEach((option: ConfigOption) => {
       parser.addOption(option);
     });
 
@@ -135,7 +135,7 @@ describe('Sparse (with test options)', () => {
   describe('argv = ["-A"]', () => {
     const parser = new Sparsely();
 
-    testOptions.forEach(option => {
+    testOptions.forEach((option: ConfigOption) => {
       parser.addOption(option);
     });
 
@@ -172,7 +172,7 @@ describe('Sparse (with test options)', () => {
   // are parsed correctly:
   describe('argv = ["--option-A", "--option-F"]', () => {
     const parser = new Sparsely();
-    testOptions.forEach(option => {
+    testOptions.forEach((option: ConfigOption) => {
       parser.addOption(option);
     });
 
@@ -209,7 +209,7 @@ describe('Sparse (with test options)', () => {
   // are parsed correctly:
   describe('argv = ["-A", "-F"]', () => {
     const parser = new Sparsely();
-    testOptions.forEach(option => {
+    testOptions.forEach((option: ConfigOption) => {
       parser.addOption(option);
     });
 
@@ -247,7 +247,7 @@ describe('Sparse (with test options)', () => {
   describe('argv = ["-AF"]', () => {
     const parser = new Sparsely();
 
-    testOptions.forEach(option => {
+    testOptions.forEach((option: ConfigOption) => {
       parser.addOption(option);
     });
 
@@ -285,7 +285,7 @@ describe('Sparse (with test options)', () => {
   describe('argv = ["--option-B", "arg1"]', () => {
     const parser = new Sparsely();
 
-    testOptions.forEach(option => {
+    testOptions.forEach((option: ConfigOption) => {
       parser.addOption(option);
     });
 
@@ -323,7 +323,7 @@ describe('Sparse (with test options)', () => {
   describe('argv = ["-B", "arg1"]', () => {
     const parser = new Sparsely();
 
-    testOptions.forEach(option => {
+    testOptions.forEach((option: ConfigOption) => {
       parser.addOption(option);
     });
 
@@ -362,7 +362,7 @@ describe('Sparse (with test options)', () => {
   describe('argv = ["--option-C=arg"]', () => {
     const parser = new Sparsely();
 
-    testOptions.forEach(option => {
+    testOptions.forEach((option: ConfigOption) => {
       parser.addOption(option);
     });
 
@@ -400,7 +400,7 @@ describe('Sparse (with test options)', () => {
   describe('argv = ["-AF", "--option-B", "option-B-arg", "--option-C=arg", "program-arg-1", "program-arg-2", "-G", "option-G-arg-1", "option-G-arg-2", "-E", "-D"]', () => {
     const parser = new Sparsely();
 
-    testOptions.forEach(option => {
+    testOptions.forEach((option: ConfigOption) => {
       parser.addOption(option);
     });
 
@@ -451,7 +451,7 @@ describe('Sparse (with test options)', () => {
   describe('argv = ["--option-B"]', () => {
     const parser = new Sparsely();
 
-    testOptions.forEach(option => {
+    testOptions.forEach((option: ConfigOption) => {
       parser.addOption(option);
     });
 
@@ -491,7 +491,7 @@ describe('Sparse (with test options)', () => {
   describe('argv = ["-B"]', () => {
     const parser = new Sparsely();
 
-    testOptions.forEach(option => {
+    testOptions.forEach((option: ConfigOption) => {
       parser.addOption(option);
     });
 
@@ -530,7 +530,7 @@ describe('Sparse (with test options)', () => {
   describe('argv = ["-A", "-B"]', () => {
     const parser = new Sparsely();
 
-    testOptions.forEach(option => {
+    testOptions.forEach((option: ConfigOption) => {
       parser.addOption(option);
     });
 
@@ -557,7 +557,7 @@ describe('Sparse (with test options)', () => {
   describe('argv = ["arg1"]', () => {
     const parser = new Sparsely();
 
-    testOptions.forEach(option => {
+    testOptions.forEach((option: ConfigOption) => {
       parser.addOption(option);
     });
 

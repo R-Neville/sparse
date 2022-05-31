@@ -1,4 +1,4 @@
-[
+export default [
   {
     "name": "option-A",
     "shorthand": "A",
