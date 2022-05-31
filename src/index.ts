@@ -1,16 +1,16 @@
 export interface ConfigOption {
-  name: string,
-  shorthand: string,
-  acceptsArgs: boolean,
-  keyValue: boolean,
-  groupable: boolean,
-  minArgs: number,
-  maxArgs: number
+  name: string, // The verbose form of the option ('--help')
+  shorthand: string, // The shorthand form of the option ('-h')
+  acceptsArgs: boolean, // Does the option accept arguments?
+  keyValue: boolean, // Can the option appear in key/value pair form?
+  groupable: boolean, // Is the option groupable with other options?
+  minArgs: number, // The minimum number of arguments the option accepts
+  maxArgs: number // The maximum number of arguments the option accepts
 }
 
 export interface ParsedOption {
-  name: string,
-  args: string[]
+  name: string, // The verbose form of the option
+  args: string[] // The arguments that were parsed for the option
 }
 
 export class Sparsely {
