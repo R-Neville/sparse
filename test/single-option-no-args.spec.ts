@@ -39,6 +39,15 @@ describe('argv = ["--option-A"]', () => {
       expect(parsedOptions).to.have.lengthOf(expected);
     });
   });
+
+  describe('isParsedOption', () => {
+    const expected = true;
+    const arg = 'option-A';
+    it(`should return ${expected} with an argument of ${arg}`, () => {
+      const result = parser.isParsedOption(arg);
+      expect(result).to.be.true;
+    });
+  });
 });
 
 // This suite tests to ensure that
@@ -76,6 +85,15 @@ describe('argv = ["-A"]', () => {
     it(`should return an array of length ${expected}`, () => {
       const parsedOptions = parser.parsedOptions;
       expect(parsedOptions).to.have.lengthOf(expected);
+    });
+  });
+
+  describe('isParsedOption', () => {
+    const expected = true;
+    const arg = 'option-A';
+    it(`should return ${expected} with an argument of ${arg}`, () => {
+      const result = parser.isParsedOption(arg);
+      expect(result).to.be.true;
     });
   });
 });
