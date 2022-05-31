@@ -37,4 +37,31 @@ describe('argv = ["arg1", "arg2", "arg3"]', () => {
       expect(parsedOptions).to.have.lengthOf(expected);
     });
   });
+
+  describe('isParsedArg', () => {
+    const expected = true;
+    const arg = 'arg1';
+    it(`should return ${expected} with an argument of ${arg}`, () => {
+      const result = parser.isParsedArg(arg);
+      expect(result).to.be.true;
+    });
+  });
+
+  describe('isParsedArg', () => {
+    const expected = true;
+    const arg = 'arg2';
+    it(`should return ${expected} with an argument of ${arg}`, () => {
+      const result = parser.isParsedArg(arg);
+      expect(result).to.be.true;
+    });
+  });
+
+  describe('isParsedArg', () => {
+    const expected = true;
+    const arg = 'arg3';
+    it(`should return ${expected} with an argument of ${arg}`, () => {
+      const result = parser.isParsedArg(arg);
+      expect(result).to.be.true;
+    });
+  });
 });
