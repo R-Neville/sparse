@@ -49,4 +49,85 @@ describe('argv = ["-AF", "--option-B", "option-B-arg", "--option-C=arg", "progra
       expect(parsedOptions).to.have.lengthOf(expected);
     });
   });
+
+  describe('isParsedOption', () => {
+    const expected = true;
+    const arg = 'option-A';
+    it(`should return ${expected} with an argument of ${arg}`, () => {
+      const result = parser.isParsedOption(arg);
+      expect(result).to.be.true;
+    });
+  });
+
+  describe('isParsedOption', () => {
+    const expected = true;
+    const arg = 'option-B';
+    it(`should return ${expected} with an argument of ${arg}`, () => {
+      const result = parser.isParsedOption(arg);
+      expect(result).to.be.true;
+    });
+  });
+
+  describe('isParsedOption', () => {
+    const expected = true;
+    const arg = 'option-C';
+    it(`should return ${expected} with an argument of ${arg}`, () => {
+      const result = parser.isParsedOption(arg);
+      expect(result).to.be.true;
+    });
+  });
+
+  describe('isParsedOption', () => {
+    const expected = true;
+    const arg = 'option-D';
+    it(`should return ${expected} with an argument of ${arg}`, () => {
+      const result = parser.isParsedOption(arg);
+      expect(result).to.be.true;
+    });
+  });
+
+  describe('isParsedOption', () => {
+    const expected = true;
+    const arg = 'option-E';
+    it(`should return ${expected} with an argument of ${arg}`, () => {
+      const result = parser.isParsedOption(arg);
+      expect(result).to.be.true;
+    });
+  });
+
+  describe('isParsedOption', () => {
+    const expected = true;
+    const arg = 'option-F';
+    it(`should return ${expected} with an argument of ${arg}`, () => {
+      const result = parser.isParsedOption(arg);
+      expect(result).to.be.true;
+    });
+  });
+
+  describe('isParsedOption', () => {
+    const expected = true;
+    const arg = 'option-G';
+    it(`should return ${expected} with an argument of ${arg}`, () => {
+      const result = parser.isParsedOption(arg);
+      expect(result).to.be.true;
+    });
+  });
+
+  describe('isParsedArg', () => {
+    const expected = true;
+    const arg = 'program-arg-1';
+    it(`should return ${expected} with an argument of ${arg}`, () => {
+      const result = parser.isParsedArg(arg);
+      expect(result).to.be.true;
+    });
+  });
+
+  describe('isParsedArg', () => {
+    const expected = true;
+    const arg = 'program-arg-2';
+    it(`should return ${expected} with an argument of ${arg}`, () => {
+      const result = parser.isParsedArg(arg);
+      expect(result).to.be.true;
+    });
+  });
 });
