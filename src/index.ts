@@ -256,15 +256,13 @@ export class Sparsely {
           } else if (validOptions.length === 1) {
             // There is only one option -
             // it might accept arguments:
-            name = this.getOptionNameFromShorthand(validOptions[0]);
+            name = validOptions[0];
           } else {
             // There are multiple options, so
             // none of them will accept arguments.
             // Add each to the parsed options list:
             validOptions.forEach(option => {
-              const optName = this.getOptionNameFromShorthand(option);
-              if (!optName) return;
-              this.addParsedOption(optName);
+              this.addParsedOption(option);
             });
             currentArgIndex += 1;
             continue;
