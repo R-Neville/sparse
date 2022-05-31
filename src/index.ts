@@ -111,24 +111,6 @@ export class Sparsely {
     return filtered.length > 0 ? filtered[0] : null;
   }
 
-  report() {
-    // Print error messages:
-    console.log('Errors:');
-    this._errors.forEach(errorMessage => {
-      console.log(`\t${errorMessage}`)
-    });
-    // Print parsed options:
-    console.log('Options:');
-    this._parsedOptions.forEach(option => {
-      console.log(`\t${option.name}: ${option.args}`);
-    });
-    // Print parsed arguments:
-    console.log('Arguments:');
-    this._parsedArgs.forEach(arg => {
-      console.log(`\t${arg}`);
-    });
-  }
-
   /**
    * Parses the command line arguments passed.
    * Ensure to not include 'node' or the name of
