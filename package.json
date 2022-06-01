@@ -2,9 +2,10 @@
   "name": "sparsely",
   "version": "1.1.0",
   "description": "A command line argument parser for JavaScript",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "mocha"
+    "build": "tsc",
+    "test": "mocha --require ts-node/register ./test/**/*.spec.ts"
   },
   "repository": {
     "type": "git",
@@ -26,7 +27,11 @@
   },
   "homepage": "https://github.com/R-Neville/sparsely#readme",
   "devDependencies": {
+    "@types/chai": "^4.3.1",
+    "@types/mocha": "^9.1.1",
     "chai": "^4.3.6",
-    "mocha": "^10.0.0"
+    "mocha": "^10.0.0",
+    "ts-node": "^10.8.0",
+    "typescript": "^4.7.2"
   }
 }

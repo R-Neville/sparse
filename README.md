@@ -1,63 +1,55 @@
 # Sparsely
 
-A command line argument parser for JavaScript. 
+A command line argument parser for JavaScript and TypeScript. 
 
-## Usage
-
-To install Sparsely, run:
+## Installation
 
 ```
 npm install sparsely
 ```
 
-Sparsely consists of a single class (`Sparsely`), which can be imported
-into your project by running:
+## Overview
 
-```js
-const Sparsely = require('sparsely');
+Sparsely exports one class (`Sparsely`) and two interfaces for 
+TypeScript usage - `ConfigOption` and `ParsedOption`. The 
+`Sparsely` class instantiates an argument parser, and options
+that your application accepts can be registered with `Sparsely`
+objects by invoking the `addOption` method with an argument that
+follows the `ConfigOption` interface declaration:
+
+```ts
+interface ConfigOption {
+  name: string, // The verbose form of the option ('--help')
+  shorthand: string, // The shorthand form of the option ('-h')
+  acceptsArgs: boolean, // Does the option accept arguments?
+  keyValue: boolean, // Can the option appear in key/value pair form?
+  groupable: boolean, // Is the option groupable with other options?
+  minArgs: number, // The minimum number of arguments the option accepts
+  maxArgs: number // The maximum number of arguments the option accepts
+}
 ```
 
-You can use the `addOption` method to register options with an
-instance:
+Command line arguments are parsed by `Sparsely` objects' `exec` method.
+This method, analyses a single string array arugment and populates three
+properties with results:
 
-```js
-const parser = new Sparsely();
+- `errors` - a string array containing error messages (if invalid options
+were passsed to your application, etc.).
+- `parsedArgs` - a string array containing any **program arguments**.
+- `parsedOptions` - an array of objects following the `ParsedOption`
+interface declaration:
 
-parser.addOption({
-  name: 'help', // The verbose form of the option (--help)
-  shorthand: 'h', // The shorthand form of the option (-h)
-  acceptsArgs: false, // Does the option accept arguments?
-  keyValue: false, // Can the option appear in key/value form?
-  groupable: false, // Can the option appear in a group?
-  minArgs: 0, // Min arguments required for the option
-  maxArgs: 0 // Max arguments required for the option
-});
+```ts
+interface ParsedOption {
+  name: string, // The verbose form of the option
+  args: string[] // The arguments that were parsed for the option
+}
 ```
 
-All of the properties specified in the example above
-are required for correct execution of the `exec` method -
-the primary parsing logic. `exec` takes an string array (of 
-command line arguments) as its sole argument:
+### Helper Methods
 
-```js
-// Remember to NOT include 'node'
-// and the entry point to your 
-// app (index.js) in the array
-// passed to exec (they will be
-// parsed):
-parser.exec(process.argv.slice(2));
-```
-
-`Sparsely` objects have three important properties, which you 
-can use to determine the parsing results:
-
-- `errors` -> an array of error messages.
-- `parsedArgs` -> an array of all *program* arguments.
-- `parsedOptions` -> an array of all options (each option 
-is represented as an object with a `name` and `args` (string array) property).
-
-The following methods can be used to assist in processing
-Sparsely's results after `exec` has been invoked:
+The following methods can be used to assist in processing the results
+produced by `exec`:
 
 - `isParsedOption`
   - Takes the name of an option as its argument
@@ -69,43 +61,155 @@ Sparsely's results after `exec` has been invoked:
   - Takes the (string) argument
   - Returns `true` if the argument has been parsed
 
-For example:
+## Including Sparsely in your code
+
+```ts
+// TypeScript
+import { Sparsely, ConfigOption, ParsedOption } from 'sparsely';
+```
 
 ```js
-const Sparsely = require('sparsely');
+// JavaScript
+const { Sparsely } = require('sparsely');
+```
+
+## Usage
+
+It convenient to create a separate file containing all valid options
+for your application (as an array of `ConfigOption` objects):
+
+```ts
+// valid-options.ts
+
+export default [
+  {
+    name: "option-A",
+    shorthand: "A",
+    acceptsArgs: false,
+    keyValue: false,
+    groupable: false,
+    minArgs: 0,
+    maxArgs: 0
+  },
+  {
+    name: "option-B",
+    shorthand: "B",
+    acceptsArgs: true,
+    keyValue: false,
+    groupable: false,
+    minArgs: 1,
+    maxArgs: 1
+  },
+  {
+    name: "option-C",
+    shorthand: "C",
+    acceptsArgs: true,
+    keyValue: true,
+    groupable: false,
+    minArgs: 1,
+    maxArgs: 1
+  },
+  {
+    name: "option-D",
+    shorthand: "D",
+    acceptsArgs: false,
+    keyValue: false,
+    groupable: true,
+    minArgs: 0,
+    maxArgs: 0
+  },
+  {
+    name: "option-E",
+    shorthand: "E",
+    acceptsArgs: false,
+    keyValue: false,
+    groupable: true,
+    minArgs: 0,
+    maxArgs: 0
+  },
+  {
+    name: "option-F",
+    shorthand: "F",
+    acceptsArgs: false,
+    keyValue: false,
+    groupable: false,
+    minArgs: 0,
+    maxArgs: 0
+  },
+  {
+    name: "option-G",
+    shorthand: "G",
+    acceptsArgs: true,
+    keyValue: false,
+    groupable: false,
+    minArgs: 1,
+    maxArgs: 3
+  }
+]
+```
+
+You can then import these objects into the file where you create
+your parser object and add them through iteration:
+
+```ts
+// parser.ts
+
+import { Sparsely, ConfigOption } from 'sparsely';
+import validOptions from './valid-options';
 
 const parser = new Sparsely();
 
-parser.addOption({
-  name: 'verbose',
-  shorthand: 'v',
-  acceptsArgs: false,
-  keyValue: false,
-  groupable: true,
-  minArgs: 0,
-  maxArgs: 0
+validOptions.forEach((option: ConfigOption) => {
+  parser.addOption(option);
 });
 
-parser.addOption({
-  name: 'port',
-  shorthand: 'p',
-  acceptsArgs: true,
-  keyValue: true,
-  groupable: false,
-  minArgs: 1,
-  maxArgs: 1
-});
-
-parser.exec([ '-v', '--port=8080', 'arg1' ]);
-
-console.log(parser.isParsedOption('help')); // -> false
-console.log(parser.isParsedOption('port')); // -> true
-console.log(parser.isParsedArg('arg2')); // -> false
-console.log(parser.isParsedArg('arg1')); // -> true
-
-console.log(parser.errors); // -> []
-console.log(parser.parsedArgs); // -> ['arg1']
-console.log(parser.parsedOptions); // -> [ { name: 'verbose', args: [] }, { name: 'port', args: [ '8080' ] } ]
-console.log(parser.getParsedOption('port')); // { name: 'port', args: [ '8080' ] }
+export default parser;
 
 ```
+
+Import the parser object into your app's entry point 
+(or wherever you want...):
+
+```ts
+// main.ts
+
+import parser from './parser';
+
+const argv = [ 
+  '-ED', 
+  '--option-B', 
+  'option-B-arg',
+  '--option-C=arg',
+  'program-arg-1',
+  'program-arg-2',
+  '-G',
+  'option-G-arg-1',
+  '-A',
+  '-F'
+];
+
+parser.exec(argv);
+
+console.log(parser.errors);
+console.log(parser.parsedOptions);
+console.log(parser.parsedArgs);
+
+```
+
+This example produces the following output:
+
+```
+[]
+[
+  { name: 'option-E', args: [] },
+  { name: 'option-D', args: [] },
+  { name: 'option-B', args: [ 'option-B-arg' ] },
+  { name: 'option-C', args: [ 'arg' ] },
+  { name: 'option-G', args: [ 'option-G-arg-1' ] },
+  { name: 'option-A', args: [] },
+  { name: 'option-F', args: [] }
+]
+[ 'program-arg-1', 'program-arg-2' ]
+
+```
+
